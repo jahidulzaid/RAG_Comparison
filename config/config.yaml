@@ -1,0 +1,14 @@
+llm:
+  provider: openai
+  model_name: gpt-4
+  temperature: 0.2
+
+embedding:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  vector_store: faiss
+  top_k: 5
+
+retriever:
+  type: vector
+  split_size: 1000
+  chunk_overlap: 200

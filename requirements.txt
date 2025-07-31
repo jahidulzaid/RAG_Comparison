@@ -1,0 +1,1 @@
+pip install langchain openai sentence-transformers faiss-cpu datasets evaluate ragas
