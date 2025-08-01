@@ -16,8 +16,8 @@ from tqdm import tqdm
 with open("data/hotpotqa_sample.json") as f:
     data = json.load(f)
 
-questions = [item["question"] for item in data[:10]]
-references = [item["answer"] for item in data[:10]]
+questions = [item["question"] for item in data[:2]]
+references = [item["answer"] for item in data[:2]]
 
 predictions = []
 for q in tqdm(questions, desc="Evaluating"):
@@ -28,6 +28,8 @@ for q in tqdm(questions, desc="Evaluating"):
     else:
         predictions.append(result)
 
+predictions = [str(p) for p in predictions]
+references = [str(r) for r in references]
 metrics = compute_metrics(predictions, references)
 print("F1:", metrics["f1"])
 print("Exact Match:", metrics["em"])
