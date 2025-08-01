@@ -11,4 +11,5 @@ def run_rag_pipeline(question: str, file_path: str):
         model="llama3.1:8b"
     )
     qa = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type="stuff")
-    return qa.invoke({"query": question})
+    # return qa.invoke({"query": question})
+    return qa.invoke({"query": question})['result']
