@@ -16,8 +16,8 @@ from tqdm import tqdm
 with open("data/hotpotqa_sample.json") as f:
     data = json.load(f)
 
-questions = [item["question"] for item in data[:100]]
-references = [item["answer"] for item in data[:100]]
+questions = [item["question"] for item in data]
+references = [item["answer"] for item in data]
 
 predictions = []
 for q in tqdm(questions, desc="Evaluating"):
