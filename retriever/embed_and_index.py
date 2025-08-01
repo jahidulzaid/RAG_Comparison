@@ -1,11 +1,11 @@
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.document_loaders import JSONLoader
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import JSONLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.chat_models import ChatOpenAI
 
 def build_retriever(file_path: str):
-    loader = JSONLoader(file_path=file_path, jq_schema=".[].context")
+    loader = JSONLoader(file_path=file_path, jq_schema=".[].context", text_content=False)
 
     docs = loader.load()
     
@@ -13,6 +13,6 @@ def build_retriever(file_path: str):
     split_docs = splitter.split_documents(docs)
     
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectorstore = FAISS.from_documents(split_docs, embedding)
+    vectorstore = FAISS.from_documents(split_docs, embedding)   
     
     return vectorstore.as_retriever()
