@@ -3,7 +3,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import JSONLoader
 
 import warnings
-warnings.filterwarnings("ignore", category=FutureWarning)
+warnings.filterwarnings("ignore")
 
 
 

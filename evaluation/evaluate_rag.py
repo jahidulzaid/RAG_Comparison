@@ -5,15 +5,22 @@ import json
 from rag.pipeline import run_rag_pipeline
 from evaluation.metrics import compute_metrics
 
+
+
+import warnings
+warnings.filterwarnings("ignore")
+
+from tqdm import tqdm
+
 # Load your dataset
 with open("data/hotpotqa_sample.json") as f:
     data = json.load(f)
 
-questions = [item["question"] for item in data]
-references = [item["answer"] for item in data]
+questions = [item["question"] for item in data[:10]]
+references = [item["answer"] for item in data[:10]]
 
 predictions = []
-for q in questions:
+for q in tqdm(questions, desc="Evaluating"):
     result = run_rag_pipeline(q, "data/hotpotqa_sample.json")
     # If your pipeline returns a dict, extract the 'result' field
     if isinstance(result, dict) and 'result' in result:
