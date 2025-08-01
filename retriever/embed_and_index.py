@@ -1,3 +1,4 @@
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import JSONLoader
@@ -13,6 +14,6 @@ def build_retriever(file_path: str):
     split_docs = splitter.split_documents(docs)
     
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-    vectorstore = FAISS.from_documents(split_docs, embedding)   
+    vectorstore = FAISS.from_documents(split_docs, embedding)
     
     return vectorstore.as_retriever()
