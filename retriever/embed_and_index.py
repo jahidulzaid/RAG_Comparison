@@ -5,6 +5,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.chat_models import ChatOpenAI
 
 from langchain.docstore.document import Document
+import json
 
 def load_hotpot_contexts(file_path: str):
     with open(file_path, "r") as f:
