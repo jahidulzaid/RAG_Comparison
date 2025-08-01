@@ -1,6 +1,7 @@
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
 from retriever.embed_and_index import build_retriever
+from langchain_community.chat_models import ChatOpenAI
 
 def run_rag_pipeline(question: str, file_path: str):
     retriever = build_retriever(file_path)
