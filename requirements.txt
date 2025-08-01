@@ -1,1 +1,32 @@
 pip install langchain openai sentence-transformers faiss-cpu datasets evaluate ragas
+
+
+[
+  {
+    "_id": "5a8b57f25542995d1e6f1371",
+    "answer": "yes",
+    "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+    "supporting_facts": [
+      ["Scott Derrickson", 0],
+      ["Ed Wood", 0]
+    ],
+    "context": [
+      [
+        "Adam Collis",
+        [
+          "Adam Collis is an American filmmaker and actor.",
+          " Collis first work was the assistant director for the Scott Derrickson's short \"Love in the Ruins\" (1995).",
+          " In 1998, he played \"Crankshaft\" in Eric Koyanagi's \"Hundred Percent\"."
+        ]
+      ],
+      [
+        "Ed Wood (film)",
+        [
+          "Ed Wood is a 1994 American biographical period comedy-drama film directed and produced by Tim Burton, and starring Johnny Depp as cult filmmaker Ed Wood."
+        ]
+      ]
+    ],
+    "type": "comparison",
+    "level": "hard"
+  }
+  ]

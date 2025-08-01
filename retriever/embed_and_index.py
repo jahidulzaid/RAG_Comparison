@@ -12,7 +12,9 @@ def load_hotpot_contexts(file_path: str):
         data = json.load(f)
     docs = []
     for entry in data:
-        for title, passage in entry["context"]:
+        for title, passage_list in entry["context"]:
+            # passage_list is a list of strings, join them
+            passage = " ".join(passage_list)
             docs.append(Document(page_content=passage, metadata={"title": title}))
     return docs
 
